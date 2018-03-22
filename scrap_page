@@ -1,0 +1,3 @@
+<!-- UPDATE LANDMARK -->
+  New Landmark: <input type="text" name="landmark[name]" id="new_landmark">
+  <br><br>
