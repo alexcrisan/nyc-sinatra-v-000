@@ -1,0 +1,44 @@
+<!-- when a user creates or edits a figure, they should also be able to select or create a new landmark and/or title to associate to that figure. In other words, the form for a new figure and the form to edit a figure should allow the user to select from existing landmarks and title and create new landmarks and titles to associate to the figure.  -->
+
+<h1>Create A New Figure</h1>
+<form action="/figures" method="POST">
+
+<!-- Enter figure name-->
+  <h4>Enter figure name: <input type="text" name="figure[name]" id="figure_name"></h4>
+
+<!-- TITLES -->
+
+  <!-- Titles checkboxes -->
+  <h4>Check from existing titles:</h4>
+  <% @titles.each do |title| %>
+    <label><%= title.name %></label>
+    <input type="checkbox" name="figure[title_ids][]" id="title_<%= title.id %>" value="<%= title.id %>"><br> 
+  <% end %>
+
+  <!-- Create new title -->
+  <h4>Or create a new figure title:</h4>
+  <input type="text" name="title[name]" id="new_title">
+
+  <br><br>
+
+<!-- LANDMARKS -->
+
+  <!-- Landmarks checkboxes -->
+  <h4>Check from existing landmarks:</h4>
+  <% @landmarks.each do |landmark| %>
+    <label><%= landmark.name %></label>
+    <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%= landmark.id %>" value="<%= landmark.id %>"><br>
+  <% end %>
+
+  <!-- Create new landmark -->
+  <h4>Or create a new landmark:</h4>
+  <label for="new_landmark">Name: </label>
+  <input type="text" id="new_landmark" name="landmark[name]"></input>
+
+  <label for="year_completed">Year: </label>
+  <input type="text" id="year_completed" name="landmark[year_completed]">
+
+  <!-- Submit button -->
+  <input type="submit" value="Create New Figure">
+
+</form>
