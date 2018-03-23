@@ -1,14 +1,17 @@
-<h1>Update <%= @figure.name %> details:</h1>
+<h1>Update <%= @landmark.name %> details:</h1>
 
-<form action="/figures/<%= @figure.id %>" method="POST">
+<form action="/landmarks/<%= @landmark.id %>" method="POST">
   <input type="hidden" id="hidden" name="_method" value="PATCH">
 
-<!-- UPDATE FIGURE -->
-  <label for="figure_name">Figure Name:</label>
-  <input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>">
+<!-- UPDATE LANDMARK NAME & YEAR COMPLETED -->
+  <label for="name">Landmark Name:</label>
+  <input type="text" name="landmark[name]" id="name" value="<%= @landmark.name %>">
+  <br><br>
+  <label for="year_completed">Landmark Year Completed:</label>
+  <input type="text" name="landmark[year_completed]" id="year_completed" value="<%= @landmark.year_completed %>">
   <br><br>
 
-  <!-- SUBMIT -->
-  <input type="submit" value="Edit Figure">
+<!-- SUBMIT -->
+  <input type="submit" value="Edit Landmark">
 
 </form>
